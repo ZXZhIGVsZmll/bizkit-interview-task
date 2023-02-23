@@ -20,8 +20,15 @@ def match(match_id):
 
 
 def is_match(fave_numbers_1, fave_numbers_2):
-    for number in fave_numbers_2:
-        if number not in fave_numbers_1:
+    """
+    Make a hash table of fave_numbers* using set() for faster lookup
+    Reduced lookup time to less than a second
+    """
+    set_fave_numbers_1 = set(fave_numbers_1)
+    set_fave_numbers_2 = set(fave_numbers_2)
+
+    for number in set_fave_numbers_2:
+        if number not in set_fave_numbers_1:
             return False
 
     return True
